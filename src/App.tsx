@@ -31,7 +31,7 @@ function App() {
           description='Here is the Todo App'
           handleClose={handleDialog}
           handleOpen={handleDialog} >
-            <CustomForm handleDialog={handleDialog} selected={selected} />
+            <CustomForm handleDialog={handleDialog} selected={selected} setSelected={setSelected}/>
           </FormDialog>
     </div>
   );

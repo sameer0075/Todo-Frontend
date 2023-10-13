@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { AddNewTodo, GetAllTodo, UpdateTodo } from '../redux/Slices/todo.slice';
 
 
-export default function CustomForm({selected,handleDialog}: any) {
+export default function CustomForm({selected,handleDialog, setSelected}: any) {
     const dispatch: any = useDispatch();
     const handleSubmit = (values:any) => {
         if(selected) {
@@ -19,6 +19,7 @@ export default function CustomForm({selected,handleDialog}: any) {
         } else {
             dispatch(AddNewTodo(values))
         }
+        setSelected(null)
         handleDialog()
     }
     return (

@@ -21,18 +21,7 @@ interface DataInterface{
 }
 
 export default function CustomTable({data,handleOpen,SetSelected}:DataInterface) {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const dispatch: any = useDispatch();
-
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
 
   const handleDialog = (todo:any) => {
     SetSelected(todo)
@@ -91,15 +80,6 @@ export default function CustomTable({data,handleOpen,SetSelected}:DataInterface)
             </TableBody>
             </Table>
         </TableContainer>
-        <TablePagination
-            rowsPerPageOptions={[10, 25, 100]}
-            component="div"
-            count={data.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-        />
         </Paper>
     </div>
   );
